@@ -318,38 +318,245 @@
 //
 // }
 
+// Bài toán tìm điểm chung trong mảng mà các mảng con có thể trùng lặp số
+// let arr = [[1, 2, 3]]
+// let result = []
+// let flag = [...new Set(arr[0])]
+// let flags = false
+//
+// if (arr.length === 0) {
+//     console.log("mảng rỗng")
+// } else {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (!Array.isArray(arr[i])) {
+//             flags = true
+//             break
+//         }
+//     }
+//     if (flags === true) {
+//         console.log("mảng không hợp lệ")
+//     } else {
+//         for (let i = 1; i < arr.length; i++) {
+//             for (let j = 0; j < flag.length; j++) {
+//                 for (let k = 0; k < arr[i].length; k++) {
+//                     if (flag[j] === arr[i][k]) {
+//                         result.push(flag[j])
+//                         break
+//                     }
+//                 }
+//             }
+//             flag = result
+//             result = []
+//         }
+//         console.log(flag)
+//     }
+// }
+//
+//
 
-let arr = [[1, 2, 3]]
+
+// Bài tập phân laoij và sắp xếp đậu theo stt từ lớn đến be
+// let arr = [{name: "đỏ", stt: 6},
+//                                      {name: "đỏ", stt: 1},
+//                                    {name: "xanh", stt: 15},
+//                                      {name: "đỏ", stt: 5},
+//                                     {name: "xanh", stt: 5},
+//                                     {name: "xanh", stt: 9},
+//                                     {name: "xanh", stt: 11}  ]
+// let result = []
+//
+// function test(arr) {
+//     if (arr.length < 2){
+//         return arr
+//     }
+//     let left = []
+//     let right = []
+//
+//     for (let i = 0; i < arr.length; i++){
+//         if (arr[i].name === "xanh"){
+//             if (arr[i].stt >= arr[0].stt){
+//                 left.push(arr[i])
+//             }if (arr[i].stt < arr[0].stt){
+//                 right.push(arr[i])
+//
+//             }
+//
+//         }
+//     }
+//
+//       result = [...test(left), ...test(right)]
+//
+//       return  result
+// }
+// test(arr)
+// console.log(result)
+
+
+
+// Bài toán tìm kiếm tuần tự
+// let arr = [1,5,6,2,9,4,6,6]
+// let result = []
+// for (let i = 0; i < arr.length; i++){
+//     if (arr[i] === 6){
+//         result.push(i)
+//     }
+// }
+// console.log(result)
+
+
+// Bài toán sắp xếp nhanh
+// let result = []
+// function test(arr) {
+//     if (arr.length < 2 ){
+//         return arr
+//     }
+//     let pivot = arr[arr.length - 1]
+//     let left = []
+//     let right = []
+//     for (let i = 0; i < arr.length -1 ; i ++){
+//         if (arr[i] <= pivot){
+//             left.push(arr[i])
+//         }else {
+//             right.push(arr[i])
+//         }
+//     }
+//
+//      result =    [...test(left),pivot,...test(right)]
+//     return result
+// }
+//
+// test(arr)
+// console.log(result)
+// let arr = [1, 5, 6, 2, 9, 4, 6, 6]
+// let sum = 1
+// while (sum < arr.length -1){
+//     sum = 0
+//     for (let i = 0; i < arr.length -1; i ++){
+//         if (arr[i] <= arr[i+1]){
+//             sum +=1
+//         }else {
+//
+//
+//         }
+//     }
+// }
+//
+// console.log(arr)
+
+
+// for (let i = 0; i < 4; i++) {
+//     let row = ""
+//     for (let k = 0; k < 7 - i; k++) {
+//         row += " "
+//     }
+//     for (let j = 3 - i; j <= 3 + i; j++) {
+//         row += "*"
+//     }
+//     console.log(row)
+// }
+//
+// for (let i = 0; i < 3; i++) {
+//     let result = ""
+//     for (let j = 1; j < 6; j++) {
+//         result += " "
+//     }
+//     for (let j = 1; j < 6; j++) {
+//         result += "*"
+//     }
+//     console.log(result)
+// }
+
+
+// Bài 1: tính tổng  mảng arr =[1,2,3,4,5,6,7,8,9]
+
+let arr = [1,2,3,4,5,6,7,8,9]
+let total = arr.reduce((current, item)=>{
+    return current += item
+},0)
+console.log(total)
+
+
+
+// Bài 2:
+input = [ 1, 2, 3, 4, 5 ];
+
 let result = []
-let flag = [...new Set(arr[0])]
-let flags = false
+for (let i = 0; i < input.length; i++){
+    result.push(input[i]*input[i])
+}
+console.log(result)
 
-if (arr.length === 0) {
-    console.log("mảng rỗng")
-} else {
-    for (let i = 0; i < arr.length; i++) {
-        if (!Array.isArray(arr[i])) {
-            flags = true
+
+
+// Bài 3:
+// "Cho 2 mảng
+ a = [1,2,3,4,5]
+ b = [6,7,8,9,10]
+// lấy ra các số chẵn đẩy vào arr1 , số lẻ vào arr2 và tính tổng"
+
+let result = [...a,...b]
+let arr1 = []
+let arr2 = []
+result.map(item =>{
+ if (item % 2 !== 0){arr1.push(item)}
+ else {arr2.push(item)}
+})
+let total1 = arr1.reduce((current,item)=>{return current += item},0)
+let total2 = arr2.reduce((current,item)=>{return current += item},0)
+
+
+
+
+// Bài 4:
+// "Cho 2 mảng
+a = [1,2,3,4,5]
+b = [6,5,4,3,9]
+ // lấy ra các phần tử trùng và đẩy vào mảng arr1 = []
+ // các phần tử k trùng đẩy vào arr2 = []"
+let arr1 = []
+let arr2 = []
+let flag = false
+
+a.map(item=>{
+    for (let i = 0; i < b.length;i++){
+        if (item === b[i]){
+            arr1.push(item)
+        }
+    }
+})
+
+for (let i = 0; i < a.length; i++){
+    let flag = false
+    for (let j = 0; j < arr1.length; j ++){
+        if (a[i] === arr1[j]){
+           flag = true
             break
         }
     }
-    if (flags === true) {
-        console.log("mảng không hợp lệ")
-    } else {
-        for (let i = 1; i < arr.length; i++) {
-            for (let j = 0; j < flag.length; j++) {
-                for (let k = 0; k < arr[i].length; k++) {
-                    if (flag[j] === arr[i][k]) {
-                        result.push(flag[j])
-                        break
-                    }
-                }
-            }
-            flag = result
-            result = []
-        }
-        console.log(flag)
+    if (flag === false){
+        arr2.push(a[i])
     }
 }
 
+for (let i = 0; i < b.length; i++){
+    flag = false
+    for (let j = 0; j < arr1.length; j ++){
+        if (b[i] === arr1[j]){
+           flag = true
+            break
+        }
+    }
+    if (flag === false){
+        arr2.push(b[i])
+    }
+}
+console.log(arr2)
 
+// Bài 5:
+// tính tổng của mảng
+ input = [ 1, -4, 12, 0, -3, 29, -150]
+let total = input.reduce((current, item)=>{
+    return current += item
+},0)
+console.log(total)
+// Result -115
